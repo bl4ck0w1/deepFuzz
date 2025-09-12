@@ -1,0 +1,21 @@
+id: waf_01
+name: "Cloudflare"
+detection_signatures:
+  headers:
+    - "Server: cloudflare"
+    - "CF-RAY"
+    - "cf-cache-status"
+    - "cf-chl-rc-ni"
+  status_codes: [403, 429]
+bypass_templates:
+  - "/?__cf_bypass=1"
+  - "/?__cf_chl_jschl_tk__=bypass"
+injection_points:
+  headers:
+    - "CF-Connecting-IP: 127.0.0.1"
+    - "X-Forwarded-For: 127.0.0.1"
+  cookies:
+    - "cf_clearance=__PLACEHOLDER__"
+challenge_markers:
+  - "/cdn-cgi/challenge-platform/"
+  - "__cf_chl_jschl_tk__"

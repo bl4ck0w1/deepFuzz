@@ -1,0 +1,9 @@
+strategy: nuclear_impact
+concurrency: 500
+max_depth: 3
+ai_integration: false
+evasion_level: 10
+timing_analysis: microsecond
+cluster_mode: blitzkrieg
+rate_limit_rps: 100
+soft404_strict: false

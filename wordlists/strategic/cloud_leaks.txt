@@ -1,0 +1,5 @@
+/.aws/credentials
+/gcp-service-account.json
+/azure-credentials.env
+/.docker/config.json
+/kubeconfig.yaml

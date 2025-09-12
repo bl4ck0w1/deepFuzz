@@ -1,0 +1,6 @@
+[submodule "wordlists/upstream/seclists"]
+	path = wordlists/upstream/seclists
+	url = https://github.com/danielmiessler/SecLists
+[submodule "wordlists/upstream/fuzzdb"]
+	path = wordlists/upstream/fuzzdb
+	url = https://github.com/fuzzdb-project/fuzzdb

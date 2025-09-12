@@ -1,0 +1,11 @@
+strategy: military_stealth
+concurrency: 50
+max_depth: 5
+ai_integration: true
+evasion_level: 9
+timing_analysis: microsecond
+cluster_mode: dark_fleet
+rate_limit_rps: 40
+js_dynamic: true
+js_max_pages: 3
+soft404_strict: true

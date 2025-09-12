@@ -1,0 +1,5 @@
+/.env
+/config.json
+/dump.rdb
+/backup.zip
+/secrets.properties

@@ -1,0 +1,45 @@
+
+syntax = "proto3";
+
+package response_cluster;
+option go_package = "github.com/bl4ck0w1/deepFuzz/proto/gen/response_cluster";
+
+service Similarity {
+  rpc Validate(ValidationRequest) returns (ValidationResponse) {};
+  rpc IsSoft404(Soft404Request) returns (Soft404Response) {};
+  rpc Cluster(ClusterRequest) returns (ClusterResponse) {}; 
+}
+
+message ValidationRequest {
+  string url = 1;
+  string response_hash = 2;   
+  int32 status_code = 3;
+  bytes content_sample = 4;  
+}
+
+message ValidationResponse {
+  bool is_valid = 1;
+  float confidence = 2;
+}
+
+message Soft404Request {
+  bytes content = 1;
+  string url = 2;
+  string host_signature = 3; 
+}
+
+message Soft404Response {
+  bool is_soft404 = 1;
+}
+
+message ClusterRequest {
+  string url = 1;           
+  string response_hash = 2; 
+  bytes content = 3;      
+  int32 status_code = 4;
+}
+
+message ClusterResponse {
+  string cluster_id = 1;
+  bool is_known_pattern = 2;
+}

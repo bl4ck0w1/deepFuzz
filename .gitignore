@@ -1,0 +1,16 @@
+# build outputs & artifacts
+bin/
+out/
+dist/
+.coverage/
+*.log
+
+# local env
+.venv/
+.env
+.env.*
+
+# caches
+wordlists/compiled/
+
+

@@ -1,0 +1,41 @@
+
+syntax = "proto3";
+
+package waf_generator;
+option go_package = "github.com/bl4ck0w1/deepFuzz/proto/gen/waf_generator";
+
+service WAFGenerator {
+  rpc GenerateEvasion(EvadeRequest) returns (EvadeResponse) {};
+  rpc MutatePath(MutateRequest) returns (MutateResponse) {};
+  rpc AdversarialFeedback(FeedbackRequest) returns (FeedbackResponse) {};
+}
+
+message EvadeRequest {
+  string target_url = 1;
+  string waf_profile = 2; 
+  bytes original_payload = 3;
+}
+
+message EvadeResponse {
+  string evaded_url = 1;
+  bytes adversarial_payload = 2;
+}
+
+message MutateRequest {
+  string original_path = 1;
+  int32 variant_count = 2;
+}
+
+message MutateResponse {
+  repeated string variants = 1;
+}
+
+message FeedbackRequest {
+  string payload = 1;
+  bool was_blocked = 2;
+  string waf_type = 3;
+}
+
+message FeedbackResponse {
+  bool ack = 1;
+}

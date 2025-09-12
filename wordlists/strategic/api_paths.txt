@@ -1,0 +1,9 @@
+/api/v1/internal/debug
+/management/health
+/_ignition/execute-solution
+/.git/config
+/actuator/gateway/routes
+
+
+
+
