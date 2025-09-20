@@ -54,7 +54,8 @@ go build -o bin/deepfuzz ./cmd/deepfuzz
 
 ```
 deepfuzz --help
-	       o                                         o__ __o__/_                             
+
+	      o                                         o__ __o__/_                             
         <|>                                       <|   v                                  
         < \                                       < >                                      
    o__ __o/    o__  __o     o__  __o   \o_ __o     |          o       o   _\o____  _\o____ 
