@@ -53,7 +53,22 @@ go build -o bin/deepfuzz ./cmd/deepfuzz
 ## CLI Reference (`--help`)
 
 ```
-DeepFuzz — Advanced web reconnaissance platform
+deepfuzz --help
+	       o                                         o__ __o__/_                             
+        <|>                                       <|   v                                  
+        < \                                       < >                                      
+   o__ __o/    o__  __o     o__  __o   \o_ __o     |          o       o   _\o____  _\o____ 
+  /v     |    /v      |>   /v      |>   |    v\    o__/_     <|>     <|>      /        /   
+ />     / \  />      //   />      //   / \    <\   |         < >     < >    o/       o/    
+ \      \o/  \o    o/     \o    o/     \o/     /  <o>         |       |    /v       /v     
+  o      |    v\  /v __o   v\  /v __o   |     o    |          o       o   />       />      
+  <\__  / \    <\/> __/>    <\/> __/>  / \ __/>   / \         <\__ __/>   \>__o__  \>__o__ 
+                                       \o/                                     \        \  
+                                        |                                                  
+                                       / \                                                 
+
+		             High Performance Discovery tool v1.0 
+
 
 Usage:
   deepfuzz [flags]
@@ -87,10 +102,7 @@ bin/deepfuzz --target https://shop.example.com
 ### 2) Increase recursion depth and set output base name
 
 ```bash
-bin/deepfuzz \
-  --target https://api.example.com \
-  --recursion 7 \
-  --output results/api_example
+bin/deepfuzz --target https://api.example.com --recursion 7   --output results/api_example
 ```
 
 This explores deeper link graphs and writes artifacts to `results/api_example.*`.
@@ -98,8 +110,7 @@ This explores deeper link graphs and writes artifacts to `results/api_example.*`
 ### 3) GitHub-assisted recon for an org
 
 ```bash
-bin/deepfuzz \
-  --target https://portal.example.com --github-org example-inc
+bin/deepfuzz --target https://portal.example.com --github-org example-inc
 ```
 
 Mines public repos under `example-inc` for endpoints/wordlists to bias the queue.
@@ -107,9 +118,7 @@ Mines public repos under `example-inc` for endpoints/wordlists to bias the queue
 ### 4) Time-machine enrichment via Common Crawl
 
 ```bash
-bin/deepfuzz \
-  --target https://www.example.com \
-  --common-crawl
+bin/deepfuzz --target https://www.example.com --common-crawl
 ```
 
 Pulls historical snapshots to surface legacy routes, backups, and forgotten panels.
@@ -117,9 +126,7 @@ Pulls historical snapshots to surface legacy routes, backups, and forgotten pane
 ### 5) Stealth persona + timing jitter
 
 ```bash
-bin/deepfuzz \
-  --target https://secure.example.com \
-  --stealth
+bin/deepfuzz --target https://secure.example.com --stealth
 ```
 
 Enables header/JA3 rotation, pacing/jitter, and stricter replay logic.
@@ -131,9 +138,7 @@ Enables header/JA3 rotation, pacing/jitter, and stricter replay logic.
 redis-server --port 6379
 
 # Run DeepFuzz connected to the fabric
-bin/deepfuzz \
-  --target https://fleet.example.com \
-  --cluster redis://127.0.0.1:6379
+bin/deepfuzz --target https://fleet.example.com --cluster redis://127.0.0.1:6379
 ```
 
 Allows job distribution/load reporting across multiple agents (when you run multiple instances with the same `--cluster`).
@@ -141,9 +146,7 @@ Allows job distribution/load reporting across multiple agents (when you run mult
 ### 7) Disable AI assistance
 
 ```bash
-bin/deepfuzz \
-  --target https://app.example.com \
-  --ai=false
+bin/deepfuzz --target https://app.example.com --ai=false
 ```
 
 Runs fully heuristic (useful for isolated environments or when AI servers aren’t available).
@@ -151,9 +154,7 @@ Runs fully heuristic (useful for isolated environments or when AI servers aren�
 ### 8) Select a threat model preset
 
 ```bash
-bin/deepfuzz \
-  --target https://panel.example.com \
-  --threat ransom
+bin/deepfuzz --target https://panel.example.com --threat ransom
 ```
 
 Tunes prioritization & evasion heuristics for the given adversary profile (`apt41`, `ransom`, `nation`).
@@ -161,9 +162,7 @@ Tunes prioritization & evasion heuristics for the given adversary profile (`apt4
 ### 9) Enable `autopwn` chain (use only when allowed)
 
 ```bash
-bin/deepfuzz \
-  --target https://lab.example.com \
-  --autopwn
+bin/deepfuzz --target https://lab.example.com --autopwn
 ```
 
 Attempts safe exploitation chains on high-confidence hits (scope-controlled). **Use only with explicit permission.**
