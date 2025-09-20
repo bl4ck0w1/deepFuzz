@@ -13,7 +13,6 @@ import (
 	"strings"
 	"sync"
 	"time"
-
 	"github.com/bl4ck0w1/deepFuzz/internal/core"
 	"github.com/go-redis/redis/v8"
 	_ "github.com/mattn/go-sqlite3"
