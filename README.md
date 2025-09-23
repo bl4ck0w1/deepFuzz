@@ -154,7 +154,7 @@ bin/deepfuzz --target https://lab.example.com --autopwn
 
 Attempts safe exploitation chains on high-confidence hits (scope-controlled). **Use only with explicit permission.**
 
-## Output
+### Output
 
 By default, results are written under the base name provided via `--output` (e.g., `results`, `results/api_example`). The engine also prints a high-level “battle assessment” at the end of a run and can export JSON/HTML reports when enabled in the build.
 
