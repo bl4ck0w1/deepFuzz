@@ -2,35 +2,27 @@
 
 ![deepfuzz-logo](logo.png)
 
-deepFuzz is Stealth-oriented, high-performance content discovery and fuzzing for modern web apps and APIs purpose-built to minimize false positives and slip past noisy WAF heuristics. **For authorized security testing only.**
-
----
+deepFuzz is Stealth-oriented, high-performance content discovery and fuzzing tool for modern web apps and APIs purpose-built to minimize false positives and slip past noisy WAF heuristics. **For authorized security testing only.**
 
 ## Why DeepFuzz?
 
 Existing tools of the similar functionality are fantastic, but they trade speed for stealth and lack AI-ready feedback loops. **DeepFuzz** is designed for bugbounty-scale and red-team conditions:
 
-* **Minimal False Positives** — TLSH fuzzy hashing + MinHash clustering; session-aware replay and context filtering.
-* **Advanced-level Evasion** — JA3/JA4+ TLS fingerprint rotation, adaptive headers, payload mutations, HTTP/2(+3 where supported), timing jitter.
-* **Hybrid Wordlists** — Target-specific dictionaries sourced from Common Crawl, GitHub, and JS analysis.
-* **DOM-Informed JS Recon** — Static + dynamic JS analysis to surface API routes and hidden endpoints.
-* **Distributed Mode** — Redis-backed job fabric for 1M+ req/min across global agents.
-* **AI-Ready** — gRPC bridges for path prediction, response similarity, and WAF-bypass payload generation.
-
-> ⚠️ **Ethics & Scope**: Use only with explicit permission. Respect robots, rate limits, and legal constraints.
-
----
+* **Minimal False Positives** TLSH fuzzy hashing + MinHash clustering; session-aware replay and context filtering.
+* **Advanced-level Evasion** JA3/JA4+ TLS fingerprint rotation, adaptive headers, payload mutations, HTTP/2(+3 where supported), timing jitter.
+* **Hybrid Wordlists** Target-specific dictionaries sourced from Common Crawl, GitHub, and JS analysis.
+* **DOM-Informed JS Recon** Static + dynamic JS analysis to surface API routes and hidden endpoints.
+* **Distributed Mode** Redis-backed job fabric for 1M+ req/min across global agents.
+* **AI-Ready** gRPC bridges for path prediction, response similarity, and WAF-bypass payload generation.
 
 ## Features at a Glance
 
-* **Fingerprinting & De-dup**: TLSH + MinHash reduce noise from mirrored CDN/WAF pages.
-* **Timing Side-Channels**: Microsecond-precision deltas to spot behavioral blocks vs. real 404/403.
-* **Personas**: Header/JA3/behavior profiles to blend in (crawler, browser, mobile, API client, etc.).
-* **Replay Engine**: Revalidate suspects under different personas to eliminate FPs.
-* **Adaptive Queue**: Prioritizes promising paths using heuristics or optional AI gRPC.
-* **Covert Ops**: Optional DNS tunneling prototype and encrypted control channels for contested environments.
-
----
+* **Fingerprinting & De-dup** TLSH + MinHash reduce noise from mirrored CDN/WAF pages.
+* **Timing Side-Channels** Microsecond-precision deltas to spot behavioral blocks vs. real 404/403.
+* **Personas** Header/JA3/behavior profiles to blend in (crawler, browser, API client).
+* **Replay Engine** Revalidate suspects under different personas to eliminate FPs.
+* **Adaptive Queue** Prioritizes promising paths using heuristics or optional AI gRPC.
+* **Covert Ops** Optional DNS tunneling prototype and encrypted control channels for contested environments.
 
 ## Quick Start
 
@@ -47,8 +39,6 @@ Existing tools of the similar functionality are fantastic, but they trade speed 
 
 go build -o bin/deepfuzz ./cmd/deepfuzz
 ```
-
----
 
 ## CLI Reference (`--help`)
 
@@ -88,11 +78,7 @@ Flags:
   -h, --help                  Show help
 ```
 
----
-
 ## Usage Examples (option-by-option)
-
-> The following examples match the flags implemented in `main.go`.
 
 ### 1) Minimal run (required target)
 
@@ -160,7 +146,7 @@ bin/deepfuzz --target https://panel.example.com --threat ransom
 
 Tunes prioritization & evasion heuristics for the given adversary profile (`apt41`, `ransom`, `nation`).
 
-### 9) Enable `autopwn` chain (use only when allowed)
+### 9) Enable `autopwn` chain 
 
 ```bash
 bin/deepfuzz --target https://lab.example.com --autopwn
@@ -168,13 +154,9 @@ bin/deepfuzz --target https://lab.example.com --autopwn
 
 Attempts safe exploitation chains on high-confidence hits (scope-controlled). **Use only with explicit permission.**
 
----
-
 ## Output
 
 By default, results are written under the base name provided via `--output` (e.g., `results`, `results/api_example`). The engine also prints a high-level “battle assessment” at the end of a run and can export JSON/HTML reports when enabled in the build.
-
----
 
 ## FAQ — Five Questions You Should Ask
 
@@ -193,20 +175,18 @@ By default, results are written under the base name provided via `--output` (e.g
 5. **Is distributed mode production-safe?**
    Yes, when used within scope. The Redis fabric is designed for large fleets, with adaptive load tracking and dead-letter handling. Secure your Redis and network per your org’s policy.
 
----
+## 🛠️ Troubleshooting
+- If you encounter any issues, please [open an issue](https://github.com/bl4ck0w1/deepFuzz/issues) on GitHub.
 
 ## Contributing
 
-PRs welcome! Please include:
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
-* Reproducible test cases
-* Before/after benchmarks where relevant
-* Clear risk/scope considerations for new evasion features
-
----
-
-## 🛠️ Troubleshooting
-- If you encounter any issues, please [open an issue](https://github.com/bl4ck0w1/deepFuzz/issues) on GitHub.
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
