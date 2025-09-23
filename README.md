@@ -160,23 +160,23 @@ By default, results are written under the base name provided via `--output` (e.g
 
 ## FAQ — Five Questions You Should Ask
 
- **How does DeepFuzz keep false positives low?**
+1. **How does DeepFuzz keep false positives low?**
 
    TLSH + MinHash fingerprinting, replay under alternate personas, and timing-variance analysis separate real surfaces from mirrored WAF/CDN noise. Optional similarity AI tightens validation further.
 
- **Will this replace ffuf/gobuster/dirsearch for me?**
+2. **Will this replace ffuf/gobuster/dirsearch for me?**
 
    If you need **stealth, adaptive queueing, and cluster scale**, DeepFuzz can become your primary discovery engine. For quick sweeps or simple lists, classic tools still shine.
 
- **What if the target runs an aggressive WAF/CDN?**
+3. **What if the target runs an aggressive WAF/CDN?**
 
    Stealth personas rotate JA3/headers, spacing, and payload mutations; we also detect behavioral blocks via micro-timing and re-probe with alternate personas before recording a hit.
 
- **Do I need the AI pieces to get value?**
+4. **Do I need the AI pieces to get value?**
 
    No. AI is optional. The core engine (evasion + clustering + recon) works out of the box. If you enable AI gRPC services, you’ll get smarter prioritization and stricter FP control.
 
- **Is distributed mode production-safe?**
+5. **Is distributed mode production-safe?**
 
    Yes, when used within scope. The Redis fabric is designed for large fleets, with adaptive load tracking and dead-letter handling. Secure your Redis and network per your org’s policy.
 
