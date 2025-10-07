@@ -86,7 +86,6 @@ func (c *SimilarityClient) ValidateFinding(result core.FuzzResult) bool {
 
 	resp, err := c.client.Validate(ctx, req)
 	if err != nil {
-		// your ResponseStore MinHash/TLSH will still cluster out dupes.
 		return true
 	}
 
@@ -104,7 +103,6 @@ func (c *SimilarityClient) IsSoft404(content []byte, url string) bool {
 
 	resp, err := c.client.IsSoft404(ctx, req)
 	if err != nil {
-		// Return false so the caller can fall back to MinHash/heuristics.
 		return false
 	}
 
