@@ -199,7 +199,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Author
 
-### Elie Uwimana 😎
+### Security Researcher 😎
 - [LinkedIn](www.linkedin.com/in/elie-uwimana)
 
 ## Compliance & Ethics
